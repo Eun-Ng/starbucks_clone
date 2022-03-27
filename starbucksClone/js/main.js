@@ -84,9 +84,15 @@ promotionToggleBtn.addEventListener('click', function () {
   isHidePromotion = !isHidePromotion;
   if (isHidePromotion) {
     // 숨김 처리!
+    // 프로모션 영역 숨김
     promotionEl.classList.add('hide');
+    // 프로모션 토글버튼 전환
+    promotionToggleBtn.classList.add('hide');
   } else {
     // 보임 처리!
+    // 프로모션 영역 보임
     promotionEl.classList.remove('hide');
+    // 프로모션 토글버튼 전환
+    promotionToggleBtn.classList.remove('hide');
   }
 });

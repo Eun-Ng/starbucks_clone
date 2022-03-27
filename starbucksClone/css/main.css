@@ -159,6 +159,7 @@ header .sub-menu ul.menu li a:hover {
 header .sub-menu .search {
   position: relative;
   height: 34px;
+  cursor: pointer;
 }
 header .sub-menu .search input {
   width: 36px;
@@ -187,7 +188,7 @@ header .sub-menu .search .material-icons {
   transition: 0.4s;
 }
 header .sub-menu .search.focused .material-icons {
-  opacity: 0;
+  display: none;
 }
 header .main-menu {
   position: absolute;
@@ -399,6 +400,10 @@ header .badges .badge {
 .notice .notice-line .inner__right .toggle-promotion .material-icons {
   font-size: 30px;
 }
+.notice .notice-line .inner__right .toggle-promotion.hide .material-icons {
+  transform: rotate(180deg);
+  transition: 0.4s;
+}
 .notice .promotion {
   height: 693px;
   background-color: #f6f5ef;
@@ -481,4 +486,73 @@ header .badges .badge {
 .notice .promotion .swiper-next:hover {
   background-color: #333;
   color: #fff;
+}
+
+/* REWARDS */
+.rewards {
+  position: relative;
+}
+.rewards .bg-left {
+  width: 50%;
+  height: 100%;
+  background-color: #272727;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.rewards .bg-right {
+  width: 50%;
+  height: 100%;
+  background-color: #d5c798;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.rewards .inner {
+  background-image: url('../images/rewards.jpg');
+  height: 241px;
+}
+.rewards .btn-group {
+  position: absolute;
+  bottom: 24px;
+  right: 0;
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.rewards .btn-group .btn.sign-up {
+  margin-right: 10px;
+}
+.rewards .btn-group .btn.sign-in {
+  width: 110px;
+}
+.rewards .btn-group .btn.gift {
+  margin-top: 10px;
+  flex-grow: 1;
+}
+
+/* YOUTUBE VIDEO */
+.youtube {
+  position: relative;
+  height: 400px;
+  background-color: royalblue;
+  overflow: hidden;
+}
+.youtube .youtube__area {
+  width: 1920px;
+  background-color: orange;
+  position: absolute;
+  left: 50%;
+  margin-left: calc(1920px / -2);
+  top: 50%;
+  margin-top: calc(1920px * 9 / 16 / -2);
+}
+.youtube .youtube__area::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+}
+.youtube .youtube__cover {
 }

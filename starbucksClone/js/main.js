@@ -18,6 +18,7 @@ searchInputEl.addEventListener('blur', function () {
 });
 
 const badgeEl = document.querySelector('header .badges');
+const toTopEl = document.querySelector('#to-top');
 
 // lodash cdn으로 스크롤 함수 실행에 부하를 줌. 과도한 함수 실행 방지
 window.addEventListener(
@@ -31,16 +32,31 @@ window.addEventListener(
         opacity: 0,
         display: 'none'
       });
+      // 버튼 보이기!
+      gsap.to(toTopEl, 0.2, {
+        x: 0
+      });
     } else {
       // 배지 보이기
       gsap.to(badgeEl, 0.6, {
         opacity: 1,
         display: 'block'
       });
+      // 버튼 숨기기!
+      gsap.to(toTopEl, 0.2, {
+        x: 100
+      });
     }
   }, 300)
 );
 // _.throttle(함수, 시간)
+
+// 스크롤 누르면 최상단
+toTopEl.addEventListener('click', function () {
+  gsap.to(window, 0.7, {
+    scrollTo: 0
+  });
+});
 
 const fadeEls = document.querySelectorAll('.visual .fade-in');
 
@@ -77,6 +93,18 @@ new Swiper('.promotion .swiper-container', {
   }
 });
 
+// 다중 슬라이드
+new Swiper('.awards .swiper-container', {
+  autoplay: true,
+  loop: true,
+  spaceBetween: 30,
+  slidesPerView: 5,
+  navigation: {
+    prevEl: '.awards .swiper-prev',
+    nextEl: '.awards .swiper-next'
+  }
+});
+
 const promotionEl = document.querySelector('.promotion');
 const promotionToggleBtn = document.querySelector('.toggle-promotion');
 let isHidePromotion = false;
@@ -97,6 +125,7 @@ promotionToggleBtn.addEventListener('click', function () {
   }
 });
 
+// 부유하는 요소 관리
 // 범위 랜덤 함수(소수점 2자리까지)
 function random(min, max) {
   // '.toFixed()'를 통해 변환된 문자 데이터를,
@@ -122,3 +151,21 @@ function floatingObject(selector, delay, size) {
 floatingObject('.floating1', 1, 15);
 floatingObject('.floating2', 0.5, 15);
 floatingObject('.floating3', 1.5, 20);
+
+// 요소가 화면에 보여짐 여부에 따른 요소 관리
+// ScrollMagic
+const spyEls = document.querySelectorAll('section.scroll-spy');
+// 요소들 반복 처리!
+spyEls.forEach(function (spyEl) {
+  new ScrollMagic.Scene({
+    // 감시할 장면(Scene)을 추가
+    triggerElement: spyEl, // 보여짐 여부를 감시할 요소를 지정
+    triggerHook: 0.8 // 화면의 80% 지점에서 보여짐 여부 감시
+  })
+    .setClassToggle(spyEl, 'show') // 요소가 화면에 보이면 show 클래스 추가
+    .addTo(new ScrollMagic.Controller()); // 컨트롤러에 장면을 할당(필수!)
+});
+
+// footer 현재 연도 계산
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent = new Date().getFullYear(); // 현재연도

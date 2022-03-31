@@ -1,7 +1,7 @@
 # ☕ STARBUCKS
 
-[DEMO](https://flamboyant-lumiere-482a1e.netlify.app/) <br/>
-[DEMO+signin](https://priceless-bhabha-83fc0d.netlify.app/)
+[DEMO](https://eun-ng-starbucks.netlify.app/)  
+[DEMO+signin] -> 구현예정
 
 ![Starbucks](./images/starbucks_main.jpeg)
 
@@ -198,7 +198,7 @@ TweenMax.to(요소, 시간, 옵션);
 
 ```js
 gsap.to(window, 0.7, {
-  scrollTo: 0,
+  scrollTo: 0
 });
 ```
 
@@ -240,7 +240,7 @@ new Swiper(요소, 옵션);
 new Swiper('.swiper-container', {
   direction: 'vertical', // 수직 슬라이드
   autoplay: true, // 자동 재생 여부
-  loop: true, // 반복 재생 여부
+  loop: true // 반복 재생 여부
 });
 ```
 
@@ -276,14 +276,14 @@ function onYouTubePlayerAPIReady() {
     playerVars: {
       autoplay: true, // 자동 재생 유무
       loop: true, // 반복 재생 유무
-      playlist: 'An6LvWQuj_8', // 반복 재생할 유튜브 영상 ID 목록
+      playlist: 'An6LvWQuj_8' // 반복 재생할 유튜브 영상 ID 목록
     },
     events: {
       // 영상이 준비되었을 때,
       onReady: function (event) {
         event.target.mute(); // 음소거!
-      },
-    },
+      }
+    }
   });
 }
 ```
@@ -303,7 +303,7 @@ function onYouTubePlayerAPIReady() {
 new ScrollMagic.Scene({
   // 감시할 장면(Scene)을 추가
   triggerElement: spyEl, // 보여짐 여부를 감시할 요소를 지정
-  triggerHook: 0.8, // 화면의 80% 지점에서 보여짐 여부 감시
+  triggerHook: 0.8 // 화면의 80% 지점에서 보여짐 여부 감시
 })
   .setClassToggle(spyEl, 'show') // 요소가 화면에 보이면 show 클래스 추가
   .addTo(new ScrollMagic.Controller()); // 컨트롤러에 장면을 할당(필수!)

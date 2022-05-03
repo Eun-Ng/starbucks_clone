@@ -144,7 +144,7 @@ KakaoTalk -
 
 ```css
 body {
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
 }
 ```
 
@@ -198,7 +198,7 @@ TweenMax.to(요소, 시간, 옵션);
 
 ```js
 gsap.to(window, 0.7, {
-  scrollTo: 0
+  scrollTo: 0,
 });
 ```
 
@@ -237,10 +237,10 @@ new Swiper(요소, 옵션);
 ```
 
 ```js
-new Swiper('.swiper-container', {
-  direction: 'vertical', // 수직 슬라이드
+new Swiper(".swiper-container", {
+  direction: "vertical", // 수직 슬라이드
   autoplay: true, // 자동 재생 여부
-  loop: true // 반복 재생 여부
+  loop: true, // 반복 재생 여부
 });
 ```
 
@@ -265,25 +265,25 @@ new Swiper('.swiper-container', {
 
 ```js
 // Youtube IFrame API를 비동기로 로드합니다.
-var tag = document.createElement('script');
-tag.src = 'https://www.youtube.com/iframe_api';
-var firstScriptTag = document.getElementsByTagName('script')[0];
+var tag = document.createElement("script");
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName("script")[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 function onYouTubePlayerAPIReady() {
   // <div id="player"></div>
-  new YT.Player('player', {
-    videoId: 'An6LvWQuj_8', // 재생할 유튜브 영상 ID
+  new YT.Player("player", {
+    videoId: "An6LvWQuj_8", // 재생할 유튜브 영상 ID
     playerVars: {
       autoplay: true, // 자동 재생 유무
       loop: true, // 반복 재생 유무
-      playlist: 'An6LvWQuj_8' // 반복 재생할 유튜브 영상 ID 목록
+      playlist: "An6LvWQuj_8", // 반복 재생할 유튜브 영상 ID 목록
     },
     events: {
       // 영상이 준비되었을 때,
       onReady: function (event) {
         event.target.mute(); // 음소거!
-      }
-    }
+      },
+    },
   });
 }
 ```
@@ -303,9 +303,9 @@ function onYouTubePlayerAPIReady() {
 new ScrollMagic.Scene({
   // 감시할 장면(Scene)을 추가
   triggerElement: spyEl, // 보여짐 여부를 감시할 요소를 지정
-  triggerHook: 0.8 // 화면의 80% 지점에서 보여짐 여부 감시
+  triggerHook: 0.8, // 화면의 80% 지점에서 보여짐 여부 감시
 })
-  .setClassToggle(spyEl, 'show') // 요소가 화면에 보이면 show 클래스 추가
+  .setClassToggle(spyEl, "show") // 요소가 화면에 보이면 show 클래스 추가
   .addTo(new ScrollMagic.Controller()); // 컨트롤러에 장면을 할당(필수!)
 ```
 
@@ -330,7 +330,7 @@ JavaScript를 '엄격 모드'로 사용합니다.<br>
 파일 혹은 함수의 최상단에 작성해야 합니다.
 
 ```javascript
-'use strict';
+"use strict";
 ```
 
 > 'Strict Mode'는 ECMAScript 5 버전에 있는 새로운 기능으로써, 프로그램 또는 함수를 엄격한 운용 콘텍스트 안에서 실행시킬 수 있게끔 합니다. 이 엄격한 콘텍스트는 몇가지 액션들을 실행할 수 없도록 하며, 좀 더 많은 예외를 발생시킵니다.
